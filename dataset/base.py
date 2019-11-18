@@ -17,7 +17,7 @@ class Base(torch.utils.data.dataset.Dataset):
         TRAIN = 'train'
         EVAL = 'eval'
 
-    OPTIONS = ['voc2007', 'coco2017', 'voc2007-cat-dog', 'coco2017-person', 'coco2017-car', 'coco2017-animal']
+    OPTIONS = ['voc2007', 'coco2017', 'voc2007-soda', 'voc2007-cat-dog', 'coco2017-person', 'coco2017-car', 'coco2017-animal']
 
     @staticmethod
     def from_name(name: str) -> Type['Base']:
@@ -39,6 +39,9 @@ class Base(torch.utils.data.dataset.Dataset):
         elif name == 'coco2017-animal':
             from dataset.coco2017_animal import COCO2017Animal
             return COCO2017Animal
+        elif name == 'voc2017-soda':
+            from dataset.voc2007_soda import VOC2007Soda
+            return VOC2007Soda
         else:
             raise ValueError
 
